@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FSM Navigator — Game UI Navigation Mapper</title>
+  <meta name="description" content="Interactive Finite State Machine builder and analyzer for game UI navigation mapping.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/7.8.5/d3.min.js"></script>
+  <!-- Lucide Icons for premium glyphs -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+<div id="app">
+  <header id="app-header">
+    <div class="logo-area">
+      <i data-lucide="compass" class="logo-icon"></i>
+      <div>
+        <h1>FSM Navigator</h1>
+        <span class="subtitle">Game UI Navigation Mapper</span>
+      </div>
+    </div>
+    <div class="header-badges">
+      <span class="status-badge live"><span class="pulse-dot"></span>Backend Connected</span>
+    </div>
+  </header>
+  
+  <main id="panels">
+    <aside id="left-panel" class="panel">
+      <div class="panel-header">
+        <i data-lucide="sliders"></i>
+        <h2>FSM Builder</h2>
+      </div>
+      <div id="builder-controls"></div>
+    </aside>
+    
+    <section id="center-panel" class="panel">
+      <div id="center-panel-header">
+        <div id="graph-toolbar"></div>
+        <div class="view-tabs">
+          <button class="tab-btn active" id="tab-graph"><i data-lucide="network"></i>Graph View</button>
+          <button class="tab-btn" id="tab-matrix"><i data-lucide="table-2"></i>Transition Matrix</button>
+        </div>
+      </div>
+      <div id="canvas-container">
+        <svg id="fsm-canvas"></svg>
+      </div>
+      <div id="matrix-container" class="hidden">
+        <div id="matrix-view-wrapper">
+          <div id="matrix-view"></div>
+        </div>
+      </div>
+    </section>
+    
+    <aside id="right-panel" class="panel">
+      <div class="panel-header">
+        <i data-lucide="activity"></i>
+        <h2>Analysis & Sim</h2>
+      </div>
+      <div id="analysis-output"></div>
+    </aside>
+  </main>
+</div>
+
+<!-- Export Modal -->
+<div id="modal-overlay" class="hidden">
+  <div id="modal-box">
+    <div class="modal-header">
+      <h3>FSM JSON Export</h3>
+      <button id="modal-close"><i data-lucide="x"></i></button>
+    </div>
+    <pre id="modal-content"></pre>
+    <button id="modal-copy" class="primary"><i data-lucide="copy"></i> Copy to Clipboard</button>
+  </div>
+</div>
+
+<!-- Application Scripts (ES Modules) -->
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
